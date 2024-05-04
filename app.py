@@ -1,31 +1,31 @@
 import streamlit as st
-import pickle
+import joblib
 
 # Load the pre-trained model
-with open("NB_model_cv_n.pkl",'rb') as f:
-    model = pickle.load(f)
+@st.cache(allow_output_mutation=True)
+def load_model():
+    return joblib.load("NB_model_cv_n.pkl")
 
-def predict_text(text):
-    prediction = model.predict([text])
+model = load_model()
+
+def predict_news(news_text):
+    prediction = model.predict([news_text])
     return prediction[0]
 
 def main():
-    st.title('Text Prediction')
+    st.title('News Authenticity Prediction')
 
-    uploaded_file = st.file_uploader("Upload a Pickle file", type="pkl")
-    if uploaded_file is not None:
-        with open(uploaded_file.name, 'wb') as f:
-            f.write(uploaded_file.getvalue())
-
-    text = st.text_area('Enter text:', '')
+    news_text = st.text_area('Paste your news text here:', '', height=200)
+    
     if st.button('Predict'):
-        if uploaded_file is not None:
-            with open(uploaded_file.name, 'rb') as f:
-                loaded_model = pickle.load(f)
-            prediction = predict_text(text)
-            st.write('The text is:', prediction)
+        if len(news_text.strip()) == 0:
+            st.warning("Please enter some text!")
         else:
-            st.write('Please upload a Pickle file')
+            prediction = predict_news(news_text)
+            if prediction == 1:
+                st.write('The news is: True')
+            else:
+                st.write('The news is: Fake')
 
 if __name__ == '__main__':
     main()
