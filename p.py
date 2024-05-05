@@ -1,8 +1,12 @@
 import streamlit as st
+import joblib
+import sklearn
+import spacy
+import nltk
 from joblib import load
 from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords as nltk_stopwords
-import spacy
+
 
 # Load machine learning model
 model = load('NB_model_cv_n.pkl')
