@@ -2,5 +2,5 @@ streamlit
 joblib
 scikit-learn
 spacy
-nltk
+nltk=3.8.1
 
