@@ -1,12 +1,11 @@
 import streamlit as st
 import joblib
-import sklearn
-import spacy
-import nltk
 from joblib import load
 from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords as nltk_stopwords
 import spacy
+
+# Load SpaCy model
 nlp = spacy.load('en_core_web_sm')
 
 # Load machine learning model
@@ -19,7 +18,6 @@ count_vectorizer = load('cv_n.pkl')
 nltk_stopwords_set = set(nltk_stopwords.words('english'))
 
 # spaCy stopwords
-nlp = spacy.load('en_core_web_sm')
 spacy_stopwords_set = nlp.Defaults.stop_words
 
 # Combine both sets
@@ -32,6 +30,44 @@ def preprocess_text(text):
     return ' '.join(tokens)
 
 # Streamlit UI
+st.set_page_config(
+    page_title="Fake News Detection",
+    page_icon="📰",
+    layout="wide"
+)
+
+# Custom CSS to style the page
+st.markdown(
+    """
+    <style>
+    .reportview-container {
+        background: url('https://www.transparenttextures.com/patterns/newspaper.png');
+        background-size: cover;
+    }
+    .sidebar .sidebar-content {
+        background-color: #f8f9fa;
+    }
+    .stTextInput>div>div>input {
+        background-color: #ffffff;
+        border-radius: 10px;
+        border: 2px solid #6c757d;
+        padding: 10px;
+        font-size: 18px;
+        color: #495057;
+    }
+    .stButton>button {
+        background-color: #007bff;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 12px 24px;
+        border-radius: 10px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 st.title('Fake News Detection')
 
 st.write('Enter a news headline or text:')
