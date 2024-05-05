@@ -41,14 +41,10 @@ st.markdown(
     """
     <style>
     .reportview-container {
-        background: url('https://www.transparenttextures.com/patterns/newspaper.png') fixed; /* Ensure the background image covers the entire container */
-        background-size: cover;
-    }
-    .sidebar .sidebar-content {
-        background-color: #f8f9fa;
+        background: none; /* Remove default background */
     }
     .stTextInput>div>div>input {
-        background-color: #ffffff;
+        background-color: #f0f0f0;
         border-radius: 10px;
         border: 2px solid #6c757d;
         padding: 10px;
@@ -73,7 +69,20 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title('Fake News Detection')
+st.title('Truth Tracker: Uncovering Fact from Fiction')
+
+# Add background color to main content
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #f0f0f0;
+        padding: 20px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 st.write('Enter a news headline or text:')
 text_input = st.text_area('Input Text', '')
@@ -93,6 +102,4 @@ if st.button('Predict'):
         if prediction[0] == 1:
             st.write('This is likely a True news.', unsafe_allow_html=True)
         else:
-            st.write('This is likely a Fake news.', unsafe_allow_html=True)
-    else:
-        st.write('Please enter some text.', unsafe_allow_html=True)
+        
