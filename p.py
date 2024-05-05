@@ -3,6 +3,7 @@ import joblib
 import sklearn
 import spacy
 import nltk
+nltk.download('stopwords')
 from joblib import load
 from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords as nltk_stopwords
