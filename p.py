@@ -9,6 +9,23 @@ from joblib import load
 from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords as nltk_stopwords
 
+import spacy
+import subprocess
+
+# Function to download SpaCy model
+def download_spacy_model(model_name):
+    try:
+        # Check if model is already installed
+        spacy.load(model_name)
+        print(f"Model '{model_name}' is already installed.")
+    except OSError:
+        # Model not found, download it
+        print(f"Downloading SpaCy model '{model_name}'...")
+        subprocess.call(['python', '-m', 'spacy', 'download', model_name])
+
+# Call the function to download the model
+download_spacy_model('en_core_web_sm')
+
 
 # Load machine learning model
 model = load('NB_model_cv_n.pkl')
