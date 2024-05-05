@@ -2,7 +2,7 @@ import streamlit as st
 import joblib
 import sklearn
 import spacy
-python -m pip install --upgrade pip
+pip install en_core_web_sm
 import nltk
 nltk.download('stopwords')
 from joblib import load
