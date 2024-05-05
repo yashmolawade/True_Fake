@@ -2,3 +2,5 @@ joblib
 scikit-learn
 nltk==3.6.5
 spacy
+import nltk
+nltk.download('stopwords')
