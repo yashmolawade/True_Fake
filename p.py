@@ -62,6 +62,11 @@ st.markdown(
         font-size: 16px;
         padding: 12px 24px;
         border-radius: 10px;
+        cursor: pointer; /* Add cursor pointer on hover */
+        transition: all 0.3s ease; /* Add smooth transition */
+    }
+    .stButton>button:hover {
+        background-color: #0056b3; /* Darker shade of blue on hover */
     }
     </style>
     """,
@@ -86,8 +91,8 @@ if st.button('Predict'):
         
         # Display prediction
         if prediction[0] == 1:
-            st.write('This is likely a True news.')
+            st.write('This is likely a True news.', unsafe_allow_html=True)
         else:
-            st.write('This is likely a Fake news.')
+            st.write('This is likely a Fake news.', unsafe_allow_html=True)
     else:
-        st.write('Please enter some text.')
+        st.write('Please enter some text.', unsafe_allow_html=True)
