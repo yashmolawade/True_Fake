@@ -1,7 +1,6 @@
 import streamlit as st
 import joblib
 import sklearn
-import spacy
 import nltk
 from joblib import load
 from sklearn.feature_extraction.text import CountVectorizer
