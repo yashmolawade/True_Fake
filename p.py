@@ -5,6 +5,7 @@ import nltk
 from joblib import load
 from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords as nltk_stopwords
+pip install spacy
 import spacy
 nlp = spacy.load('en_core_web_sm')
 
