@@ -7,7 +7,9 @@ from joblib import load
 from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords as nltk_stopwords
 import spacy
-nlp = spacy.load('en_core_web_sm')
+# Provide the path to the downloaded model
+model_path = "/path/to/en_core_web_sm"
+nlp = spacy.load(model_path)
 
 # Load machine learning model
 model = load('NB_model_cv_n.pkl')
