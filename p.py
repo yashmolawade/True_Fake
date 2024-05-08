@@ -6,6 +6,7 @@ from joblib import load
 from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords as nltk_stopwords
 import spacy
+nltk.download('stopwords')
 
 # Load machine learning model
 model = load('NB_model_cv_n.pkl')
