@@ -2,13 +2,13 @@ import streamlit as st
 import joblib
 import sklearn
 import nltk
+nltk.download('stopwords')
 from joblib import load
 from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords as nltk_stopwords
 import spacy
 import en_core_web_sm
-def download_nltk_resources():
-    nltk.download('stopwords')
+nltk.download('stopwords')
      
 # Load machine learning model
 model = load('NB_model_cv_n.pkl')
