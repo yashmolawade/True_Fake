@@ -8,10 +8,10 @@ from nltk.corpus import stopwords as nltk_stopwords
 import spacy
 
 # Load machine learning model
-model = load('C:\\Users\\Yash\\Desktop\\NLP\\NB_model_cv_n.pkl')
+model = load('NB_model_cv_n.pkl')
 
 # Load CountVectorizer
-count_vectorizer = load('C:\\Users\\Yash\\Desktop\\NLP\\cv_n.pkl')
+count_vectorizer = load('cv_n.pkl')
 
 # NLTK stopwords
 nltk_stopwords_set = set(nltk_stopwords.words('english'))
